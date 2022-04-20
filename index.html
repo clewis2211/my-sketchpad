@@ -11,14 +11,20 @@
 <body>
 
     <div class="container">
-        <input type='reset' class="btn btn-primary" id="clearBtn"></input>
         <div class="container border border-primary rounded" id="sketchPad">
         </div>
-        <label for="grid">Change the size of the grid</label>
-        <select class="form-control-sm" name="" id="pixleSize">
-            <option value=""></option>
-        </select>
+
+        <button class="btn btn-primary">Black</button>
+        <button class="btn btn-primary">White</button>
+        <button class="btn btn-primary">Random</button>
+        <button class="btn btn-primary" id="clearBtn">Reset</button>
+
+        <form action="" id="form">
+            <input type="text" class="form-control-sm" value=" "    id="changeGridSize">
+            <button class="btn btn-primary" id="gridSizeBtn">Change Size</button>
+        </form>
     </div>
+   
     
 
 

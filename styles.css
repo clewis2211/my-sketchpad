@@ -1,9 +1,14 @@
-#clearBtn{
+/* #clearBtn{
     display: flex;
     margin: 10%;
-}
+} */
+
+/* .container{
+    justify-content: space-between;
+} */
 
 #sketchPad{
+    display: grid;
     height: 26em;
     width: 26em;
     position: absolute;
@@ -14,11 +19,14 @@
     padding: 0;
 }
 
-.squareDiv{
+#form{
+    width: 50px;
+}
+/* .squareDiv{
     height: 16px;
     width: 16px;
     border: solid 1px black;
     background-color: white;
     float: left;
     display: flex;
-}
+} */
