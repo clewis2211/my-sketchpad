@@ -1,0 +1,24 @@
+#clearBtn{
+    display: flex;
+    margin: 10%;
+}
+
+#sketchPad{
+    height: 26em;
+    width: 26em;
+    position: absolute;
+    top: 24%;
+    left: 33%;
+    /* justify-content: left;
+    align-items: center; */
+    padding: 0;
+}
+
+.squareDiv{
+    height: 16px;
+    width: 16px;
+    border: solid 1px black;
+    background-color: white;
+    float: left;
+    display: flex;
+}
