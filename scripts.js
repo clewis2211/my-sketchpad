@@ -3,7 +3,7 @@
 let sketchPad = document.getElementById('sketchPad');
 sketchPad.style.gridTemplateColumns = 'repeat(16, 1fr)'
 sketchPad.style.gridTemplateRows = 'repeat(16, 1fr)'
-sketchPad.addEventListener('mousedown',createSquare)
+// sketchPad.addEventListener('mousedown',createSquare)
 // sketchPad.addEventListener('dblclick', )
 // sketchPad.addEventListener('mousemove', createSquare)
 
@@ -12,33 +12,56 @@ let clearBtn = document.getElementById('clearBtn')
 clearBtn.disabled = false
 clearBtn.addEventListener('click', clearSketchPad)
 
+//CLEAR THE SKETCHPAD WHEN THE RESET BUTTON IS CLICKED  
+function clearSketchPad(e){
+    console.log(e.target.id)
+    let clearSketch = document.getElementById('sketchPad')
+    clearSketch.style.backgroundColor = ''
+}
+
 //Change Grid Size Button
 let gridSizeBtn = document.getElementById('gridSizeBtn')
 gridSizeBtn.addEventListener('click', changeSize)
 
-function createSquare(){
+//BLACK BACKGROUND BUTTON
+let blackButton = document.getElementById('blackBtn');
+blackButton.addEventListener('click', blkBtn)
+function blkBtn(e){
+    console.log(e.target.id)
+    sketchPad.style.backgroundColor = 'black'
     for(let i = 0; i < 256; i++){
         let square = document.createElement('div')
-        square.style.backgroundColor = 'white';
+        // square.style.backgroundColor = 'white';
+        sketchPad.insertAdjacentElement('beforeend', square)
+        square.className = 'squareDiv'
+         square.addEventListener('mouseover', function(){
+            square.style.backgroundColor = 'white'
+        })
+    }
+}
+
+
+//RANDOM COLOR BUTTON
+let randomBtn = document.getElementById('randomBtn')
+randomBtn.addEventListener('click', randomColor)
+function randomColor(e){
+    console.log(e.target.id)
+    sketchPad.style.backgroundColor = 'gray'
+    for(let i = 0; i < 256; i++){
+        let square = document.createElement('div')
+        square.style.backgroundColor = 'gray';
         sketchPad.insertAdjacentElement('beforeend', square)
         square.className = 'squareDiv'
         square.addEventListener('mouseover', function(){
             square.style.backgroundColor = changeColor()
         })
-        // square.addEventListener('dblclick', function(){
-        //     square.innerText = exit()
-        // })
     }
-    // sketchPad.appendChild(square)
-
-    
-}
-
-function exit(e){
-    square.innerText = ''
 }
 
 
+
+
+//GENERATE A RANDOM COLOR
 function changeColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -48,12 +71,10 @@ function changeColor() {
     return color;
   }
 
-function clearSketchPad(e){
-    console.log(e.target.id)
-    let clearSketch = document.getElementById('sketchPad')
-    clearSketch.innerText = ''
-}
 
+
+
+//CHANGE THE SIZE OF THE GRID INSIDE THE SKETCH PAD
 function changeSize(e){
    e.preventDefault()
 
@@ -72,4 +93,9 @@ function changeSize(e){
         square.className = 'squareDiv'
     }
 
+}
+
+
+function exit(e){
+    square.innerText = ''
 }
